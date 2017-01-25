@@ -1,11 +1,25 @@
 <?php
-// create and task array with = title, due, assigned_to and completed
-$tasks = [
-  'title' => 'Cut front lawns grass',
-  'due' => '02.02.2017',
+
+//homework. Your are building an app for a website. Your checking if user is older then 18. If he is 18 he can get in. If not he is out. Create a fucntion that checks this.
+
+require 'functions.php';
+
+$task = [
+  'title' => 'Call the Gardener',
+  'due' => '02/03/2017',
   'assigned_to' => 'Agata',
   'completed' => true
 ];
-require 'index.view.php';
 
+
+
+dd($task);
+
+
+
+//echo '<pre>';
+//die(var_dump($task));
+//echo '</pre>';
+
+require 'index.view.php';
  ?>
