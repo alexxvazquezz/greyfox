@@ -1,25 +1,37 @@
 <?php
 
-//homework. Your are building an app for a website. Your checking if user is older then 18. If he is 18 he can get in. If not he is out. Create a fucntion that checks this.
+class Task {
+  public $description;
 
-require 'functions.php';
+  public $completed = false; //Protected means that it is no accesable from outside this class.
 
-$task = [
-  'title' => 'Call the Gardener',
-  'due' => '02/03/2017',
-  'assigned_to' => 'Agata',
-  'completed' => true
+  public function __construct($description)
+  {
+    $this->description = $description;
+  }
+
+  public function complete()
+  {
+    $this->completed = true;
+  }
+  public function isComplete()
+  {
+    return $this->completed;
+  }
+
+}
+
+
+
+
+$tasks = [
+    new Task('Go to the store'),
+    new Task('Pick up Gaby from school'),
+    new Task('Clean my room')
 ];
 
-
-
-dd($task);
-
-
-
-//echo '<pre>';
-//die(var_dump($task));
-//echo '</pre>';
+$tasks[0]->complete();
+$tasks[2]->complete();
 
 require 'index.view.php';
  ?>

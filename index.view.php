@@ -13,39 +13,17 @@
   </head>
 
   <body>
-
-
-    <div class="background">
-      <h1>Tasks:</h1>
-
-      <ul>
+    <ul>
+      <?php foreach($tasks as $task) : ?>
         <li>
-          <strong>Title: </strong><?php echo $task['title']; ?>
-        </li>
-
-        <li>
-          <strong>Due date: </strong> <?php echo $task['due']; ?>
-        </li>
-
-        <li>
-          <strong>Owner: </strong> <?php echo $task['assigned_to']; ?>
-        </li>
-
-        <li>
-          <strong>Status: </strong>
-
-          <?php if($task['completed']) : ?>
-            <span>&#9989;</span>
+          <?php if($task->completed) : ?>
+            <strike><?php echo $task->description;?></strike>
           <?php else : ?>
-            <span>&#10060;</span>
+            <?php echo $task->description; ?>
           <?php endif; ?>
-
         </li>
-      </ul>
-
-    </div>
-
-
+      <?php endforeach; ?>
+    </ul>
   </body>
 
 </html>
