@@ -1,37 +1,18 @@
 <?php
+require 'Task.php';
 
-class Task {
-  public $description;
-
-  public $completed = false; //Protected means that it is no accesable from outside this class.
-
-  public function __construct($description)
-  {
-    $this->description = $description;
-  }
-
-  public function complete()
-  {
-    $this->completed = true;
-  }
-  public function isComplete()
-  {
-    return $this->completed;
-  }
-
+try {
+  $pdo = new PDO('mysql:host=127.0.0.1;dbname=greyfox','root','Terrada5224');
+} catch (PDOException $e) {
+  die('Could not connect to the database.');
 }
+$statement = $pdo->prepare('select * from todos');
+$statement->execute();
 
+$tasks = $statement->fetchAll(PDO::FETCH_CLASS, 'Task');
 
-
-
-$tasks = [
-    new Task('Go to the store'),
-    new Task('Pick up Gaby from school'),
-    new Task('Clean my room')
-];
-
-$tasks[0]->complete();
-$tasks[2]->complete();
 
 require 'index.view.php';
+
+
  ?>
