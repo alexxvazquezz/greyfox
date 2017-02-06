@@ -13,6 +13,14 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><a href="/GreyFox/about.php">About</a></li>
+      </ul>
+      <ul>
+        <li><a href="/GreyFox/contact.php">Contact</a></li>
+      </ul>
+    </nav>
     <ul>
       <?php foreach($tasks as $task) : ?>
         <li>
