@@ -1,10 +1,12 @@
 <?php
 
-$query = require 'bootstrap.php';
+$query = require '/Users/alejandrovazquez/code/greyfox/core/bootstrap.php';
 
-$tasks = $query->selectAll('todos');
+$router = new Router;
 
-require 'index.view.php';
+require '/Users/alejandrovazquez/code/greyfox/routes.php';
+
+require $router->direct('about/culture');
 
 
- ?>
+?>
